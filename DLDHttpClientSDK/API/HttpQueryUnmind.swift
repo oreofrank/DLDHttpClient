@@ -20,9 +20,6 @@ class HttpQueryUnmind {
             UpdateWindow.backgroundColor = UIColor.clear
             
             return true
-        } else if statusCode == 700 {
-            //MaintainWebInstance.add(urlStr: Http_error)
-            return true
         }
         return false
     }

@@ -13,6 +13,7 @@ import HandyJSON
 
 var isOpenConsoleOutput = true
 var diffientTimeInterval: TimeInterval = 0
+var headerTagField = "Duliday-Cache-Tag"
 
 typealias HttpSuccess<E:HandyJSON> = (_ model:E?, _ base:BaseModel?) -> Swift.Void
 typealias HttpSuccessArray<E:HandyJSON> = (_ model:[E]?, _ base:BaseModel?) -> Swift.Void
@@ -20,8 +21,6 @@ typealias HttpCache<E:HandyJSON> = (_ model:E?) -> Swift.Void
 typealias HttpCacheArray<E:HandyJSON> = (_ model:[E]?) -> Swift.Void
 typealias HttpError = (_ errorMsg:String, _ errorCode:Int) -> Swift.Void
 typealias HttpReponseError = (_ errorCode:Int?) -> Swift.Void
-
-let headerTagField = "Duliday-Cache-Tag"
 
 public func printLog(_ items: Any...) {
     if isOpenConsoleOutput {
@@ -31,7 +30,7 @@ public func printLog(_ items: Any...) {
     }
 }
 
-class QueryManager<T:RequestType> {
+class QueryManager<T: RequestTargetType> {
     init() {
     }
     
@@ -97,7 +96,7 @@ extension Moya.Response {
     
 }
 
-class QueryBall<T:RequestType> {
+class QueryBall<T:RequestTargetType> {
     
     var sProvider:MoyaProvider<T>
     var reactive:Reactive<MoyaProvider<T>>
@@ -600,7 +599,7 @@ class QueryBall<T:RequestType> {
     }
     
     private func cacheUrl(_ params:T) -> String {
-        let paramsStr = getJSONStringFromDictionary(dictionary: (params.parames ?? [:]) as NSDictionary)
+        let paramsStr = getJSONStringFromDictionary(dictionary: params.parames as NSDictionary)
         return params.path + paramsStr
     }
     
