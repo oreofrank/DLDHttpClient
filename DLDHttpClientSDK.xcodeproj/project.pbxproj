@@ -85,9 +85,9 @@
 		1B1DEB77212C1B3900274B8C /* API */ = {
 			isa = PBXGroup;
 			children = (
-				1B1DEBA12137F90100274B8C /* HttpCacheManager.swift */,
-				1B1DEBA02137F90000274B8C /* HttpProgressManager.swift */,
 				1B1DEBA22137F90100274B8C /* HttpQueryManager.swift */,
+				1B1DEBA02137F90000274B8C /* HttpProgressManager.swift */,
+				1B1DEBA12137F90100274B8C /* HttpCacheManager.swift */,
 				1B1DEBA32137F90100274B8C /* HttpQueryUnmind.swift */,
 				1B1DEBA42137F90100274B8C /* HttpRequestType.swift */,
 			);
