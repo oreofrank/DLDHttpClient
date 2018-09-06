@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
 
   s.name         = "DLDHttpClient"
   s.version      = "1.0.0"
-  s.summary      = "Http model"
+  s.summary      = "http returns data model"
 
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?
@@ -53,9 +53,9 @@ Pod::Spec.new do |s|
   #  profile URL.
   #
 
-  s.author             = { "liaohai" => "hn_liaohai@163.com" }
-  # Or just: s.author    = "liaohai"
-  # s.authors            = { "liaohai" => "hn_liaohai@163.com" }
+  s.author             = { "frank" => "hn_liaohai@163.com" }
+  # Or just: s.author    = "frank"
+  # s.authors            = { "frank" => "hn_liaohai@163.com" }
   # s.social_media_url   = ""
 
   # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -140,5 +140,7 @@ Pod::Spec.new do |s|
   s.dependency "RxCocoa"
   s.dependency "Moya"
   s.dependency "RxSwift"
+
+  s.swift_version = '4.0'
 
 end
