@@ -53,9 +53,9 @@ Pod::Spec.new do |s|
   #  profile URL.
   #
 
-  s.author             = { "liaohai" => "liaohai@topshifts.com" }
+  s.author             = { "liaohai" => "hn_liaohai@163.com" }
   # Or just: s.author    = "liaohai"
-  # s.authors            = { "liaohai" => "liaohai@topshifts.com" }
+  # s.authors            = { "liaohai" => "hn_liaohai@163.com" }
   # s.social_media_url   = ""
 
   # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -80,7 +80,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/oreofrank/DLDHttpClient.git", :tag => "1.0.0" }
+  s.source       = { :git => "https://github.com/oreofrank/DLDHttpClient.git" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
