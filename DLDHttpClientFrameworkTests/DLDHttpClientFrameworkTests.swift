@@ -1,15 +1,15 @@
 //
-//  DLDHttpClientSDKTests.swift
-//  DLDHttpClientSDKTests
+//  DLDHttpClientFrameworkTests.swift
+//  DLDHttpClientFrameworkTests
 //
-//  Created by Frank liao on 2018/6/27.
+//  Created by Frank liao on 2018/9/6.
 //  Copyright © 2018年 Frank liao. All rights reserved.
 //
 
 import XCTest
-@testable import DLDHttpClientSDK
+@testable import DLDHttpClientFramework
 
-class DLDHttpClientSDKTests: XCTestCase {
+class DLDHttpClientFrameworkTests: XCTestCase {
     
     override func setUp() {
         super.setUp()

@@ -1,6 +1,6 @@
 //
 //  Color.swift
-//  DLDHttpClientSDK
+//  DLDHttpClientFramework
 //
 //  Created by Frank liao on 2018/6/27.
 //  Copyright © 2018年 Frank liao. All rights reserved.

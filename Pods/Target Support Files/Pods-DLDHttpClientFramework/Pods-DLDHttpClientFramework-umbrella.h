@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_DLDHttpClientSDKVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_DLDHttpClientSDKVersionString[];
+FOUNDATION_EXPORT double Pods_DLDHttpClientFrameworkVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_DLDHttpClientFrameworkVersionString[];
 
