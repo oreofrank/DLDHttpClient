@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
 
   s.name         = "DLDHttpClient"
   s.version      = "1.0.0"
-  s.summary      = "http returns data model"
+  s.summary      = "http return with data base model"
 
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?
@@ -25,7 +25,7 @@ Pod::Spec.new do |s|
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   s.description  = <<-DESC
-                    DLDHttpClient是用Moya，HandJson封装网络请求返回数据model，并可以缓存
+                    DLDHttpClient是用Moya，HandJson封装网络请求返回model数据，并支持缓存
                    DESC
 
   s.homepage     = "https://github.com/oreofrank/DLDHttpClient"

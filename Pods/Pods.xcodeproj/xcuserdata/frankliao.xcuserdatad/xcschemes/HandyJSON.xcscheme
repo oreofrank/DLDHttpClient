@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1465651EBBC44AD3276DDE2476CDA450"
+               BlueprintIdentifier = "5F6D4342D8B461DD52A84379A30C73A9"
                BlueprintName = "HandyJSON"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "HandyJSON.framework">
