@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
 
   s.name         = "DLDHttpClient"
   s.version      = "1.0.0"
-  s.summary      = "http return with data base model"
+  s.summary      = "http return data base model"
 
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?
