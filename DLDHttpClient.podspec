@@ -16,8 +16,8 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "DLDHttpClient"
-  s.version      = "1.0.0"
-  s.summary      = "http return data base model"
+  s.version      = "1.0.1"
+  s.summary      = "http handle with data model"
 
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?
@@ -91,7 +91,7 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "DLDHttpClientFramework/*"
+  s.source_files  = "DLDHttpClientFramework/API/*"
 
 
   # s.exclude_files = "Classes/Exclude"
@@ -104,7 +104,7 @@ Pod::Spec.new do |s|
   #  A list of resources included with the Pod. These are copied into the
   #  target bundle with a build phase script. Anything else will be cleaned.
   #  You can preserve files from being cleaned, please don't preserve
-  #  non-essential files like tests, examples and documentation.
+  #  non-essential files like tests, examplces and documentation.
   #
 
   # s.resource  = "icon.png"
