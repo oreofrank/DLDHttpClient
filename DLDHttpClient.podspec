@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "DLDHttpClient"
-  s.version      = "1.0.3"
+  s.version      = "1.0.6"
   s.summary      = "http handle with data model"
 
   # This description is used to generate tags and improve search results.
@@ -91,7 +91,7 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "DLDHttpClientFramework/API/*.swift"
+  s.source_files  = "DLDHttpClientFramework/**/*.swift"
 
 
   # s.exclude_files = "Classes/Exclude"
@@ -137,8 +137,7 @@ Pod::Spec.new do |s|
 
   s.dependency "HandyJSON"
   s.dependency "RxCocoa"
-  s.dependency "Moya"
-  s.dependency "RxSwift"
+  s.dependency "Moya/RxSwift"
 
   s.swift_version = '4.0'
 

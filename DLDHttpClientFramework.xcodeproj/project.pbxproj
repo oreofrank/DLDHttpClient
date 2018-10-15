@@ -124,9 +124,9 @@
 				1B89D4AD2140D9E500F8B8AE /* NSDateExtension.swift */,
 				1B89D4AE2140D9E500F8B8AE /* IntExtension.swift */,
 				1B89D4AF2140D9E500F8B8AE /* Md5.swift */,
-				1B89D4B02140D9E500F8B8AE /* BaseModel.swift */,
 				1B89D4B12140D9E500F8B8AE /* StringExtension.swift */,
 				1B89D4B22140D9E500F8B8AE /* Color.swift */,
+				1B89D4B02140D9E500F8B8AE /* BaseModel.swift */,
 			);
 			path = Frame;
 			sourceTree = "<group>";
