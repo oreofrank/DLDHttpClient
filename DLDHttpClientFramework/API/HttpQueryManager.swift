@@ -203,7 +203,7 @@ class QueryBall<T:RequestTargetType> {
                     if let bm = base, bm.code != Int.defaultValue, bm.code != 0 {
                         DispatchQueue.main.async {
                             HttpProgressManager.hiddenProcessHUD(progress, view:progressView)
-                            HttpProgressManager.showErrorProgressHUD(code: base!.code, interError: true)
+                            //HttpProgressManager.showErrorProgressHUD(code: base!.code, interError: true)
                             success(nil, base)
                         }
                         return
@@ -337,7 +337,7 @@ class QueryBall<T:RequestTargetType> {
                     if let bm = base, bm.code != Int.defaultValue, bm.code != 0 {
                         DispatchQueue.main.async {
                             HttpProgressManager.hiddenProcessHUD(progress, view:progressView)
-                            HttpProgressManager.showErrorProgressHUD(code: base!.code, interError: true)
+                            //HttpProgressManager.showErrorProgressHUD(code: base!.code, interError: true)
                             success(nil, base)
                         }
                         return
@@ -534,7 +534,7 @@ class QueryBall<T:RequestTargetType> {
                     if let bm = base, bm.code != Int.defaultValue, bm.code != 0 {
                         DispatchQueue.main.async {
                             HttpProgressManager.hiddenProcessHUD(progress, view:progressView)
-                            HttpProgressManager.showErrorProgressHUD(code: base!.code, interError: true)
+                            //HttpProgressManager.showErrorProgressHUD(code: base!.code, interError: true)
                             success(nil, base)
                         }
                         return
@@ -621,7 +621,7 @@ class QueryBall<T:RequestTargetType> {
         let errorCode:Int = moyaError.response?.statusCode ?? -1
         
         if errorCode != -1, errorCode != 200 {
-            HttpProgressManager.showErrorProgressHUD(code: errorCode)
+            //HttpProgressManager.showErrorProgressHUD(code: errorCode)
         }
         
         self.reponseErrorCode(errorCode)

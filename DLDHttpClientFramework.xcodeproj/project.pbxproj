@@ -21,8 +21,6 @@
 		1B89D4C72140D9E500F8B8AE /* HttpRequestType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B89D4B62140D9E500F8B8AE /* HttpRequestType.swift */; };
 		1B89D4C82140D9E500F8B8AE /* HttpProgressManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B89D4B72140D9E500F8B8AE /* HttpProgressManager.swift */; };
 		1B89D4C92140D9E500F8B8AE /* HttpCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B89D4B82140D9E500F8B8AE /* HttpCacheManager.swift */; };
-		1B89D4CA2140D9E500F8B8AE /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B89D4BA2140D9E500F8B8AE /* MBProgressHUD.m */; };
-		1B89D4CB2140D9E500F8B8AE /* MBProgressHUD.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B89D4BB2140D9E500F8B8AE /* MBProgressHUD.h */; };
 		1B89D4CE2140FA4C00F8B8AE /* DLDHttpClient.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 1B89D4CD2140FA4C00F8B8AE /* DLDHttpClient.podspec */; };
 		8637C61806B239EDB33034B6 /* Pods_DLDHttpClientFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F6A6C83C947F363DBEF96A8 /* Pods_DLDHttpClientFramework.framework */; };
 /* End PBXBuildFile section */
@@ -54,9 +52,6 @@
 		1B89D4B62140D9E500F8B8AE /* HttpRequestType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpRequestType.swift; sourceTree = "<group>"; };
 		1B89D4B72140D9E500F8B8AE /* HttpProgressManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpProgressManager.swift; sourceTree = "<group>"; };
 		1B89D4B82140D9E500F8B8AE /* HttpCacheManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpCacheManager.swift; sourceTree = "<group>"; };
-		1B89D4BA2140D9E500F8B8AE /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
-		1B89D4BB2140D9E500F8B8AE /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
-		1B89D4BC2140D9E500F8B8AE /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
 		1B89D4CD2140FA4C00F8B8AE /* DLDHttpClient.podspec */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = text; path = DLDHttpClient.podspec; sourceTree = SOURCE_ROOT; tabWidth = 2; };
 		342F89E1EC2B71BD98772ADF /* Pods-DLDHttpClientFramework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DLDHttpClientFramework.release.xcconfig"; path = "Pods/Target Support Files/Pods-DLDHttpClientFramework/Pods-DLDHttpClientFramework.release.xcconfig"; sourceTree = "<group>"; };
 		5F6A6C83C947F363DBEF96A8 /* Pods_DLDHttpClientFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DLDHttpClientFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -119,7 +114,6 @@
 				1B89D4AB2140D9E500F8B8AE /* DLDHttpClientFramework.h */,
 				1B89D4AC2140D9E500F8B8AE /* Frame */,
 				1B89D4B32140D9E500F8B8AE /* API */,
-				1B89D4B92140D9E500F8B8AE /* MBProgressHUD */,
 			);
 			path = DLDHttpClientFramework;
 			sourceTree = "<group>";
@@ -149,16 +143,6 @@
 			path = API;
 			sourceTree = "<group>";
 		};
-		1B89D4B92140D9E500F8B8AE /* MBProgressHUD */ = {
-			isa = PBXGroup;
-			children = (
-				1B89D4BA2140D9E500F8B8AE /* MBProgressHUD.m */,
-				1B89D4BB2140D9E500F8B8AE /* MBProgressHUD.h */,
-				1B89D4BC2140D9E500F8B8AE /* module.modulemap */,
-			);
-			path = MBProgressHUD;
-			sourceTree = "<group>";
-		};
 		C4387912A44E1FD5AB0B08A6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -184,7 +168,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B89D4BE2140D9E500F8B8AE /* DLDHttpClientFramework.h in Headers */,
-				1B89D4CB2140D9E500F8B8AE /* MBProgressHUD.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,7 +298,6 @@
 				1B89D4C62140D9E500F8B8AE /* HttpQueryManager.swift in Sources */,
 				1B89D4C32140D9E500F8B8AE /* StringExtension.swift in Sources */,
 				1B89D4C72140D9E500F8B8AE /* HttpRequestType.swift in Sources */,
-				1B89D4CA2140D9E500F8B8AE /* MBProgressHUD.m in Sources */,
 				1B89D4C52140D9E500F8B8AE /* HttpQueryUnmind.swift in Sources */,
 				1B89D4C22140D9E500F8B8AE /* BaseModel.swift in Sources */,
 				1B89D4C02140D9E500F8B8AE /* IntExtension.swift in Sources */,
@@ -482,7 +464,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.DuLiday.httpClient;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_INCLUDE_PATHS = "\"$(SRCROOT)/DLDHttpClientFramework/MBProgressHUD\"";
+				SWIFT_INCLUDE_PATHS = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -508,7 +490,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.DuLiday.httpClient;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_INCLUDE_PATHS = "\"$(SRCROOT)/DLDHttpClientFramework/MBProgressHUD\"";
+				SWIFT_INCLUDE_PATHS = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
