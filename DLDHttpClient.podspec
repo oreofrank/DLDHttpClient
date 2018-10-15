@@ -16,8 +16,10 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "DLDHttpClient"
-  s.version      = "1.0.6"
+  s.version      = "1.1.0"
   s.summary      = "http handle with data model"
+  s.source       = { :git => "https://github.com/oreofrank/DLDHttpClient.git", :tag => "1.1.0" }
+  s.source_files  = "DLDHttpClientFramework/API/*.swift"
 
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?
@@ -80,7 +82,6 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/oreofrank/DLDHttpClient.git", :tag => "1.0.3" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -91,7 +92,6 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "DLDHttpClientFramework/**/*.swift"
 
 
   # s.exclude_files = "Classes/Exclude"

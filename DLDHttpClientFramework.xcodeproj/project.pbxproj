@@ -126,7 +126,6 @@
 				1B89D4AF2140D9E500F8B8AE /* Md5.swift */,
 				1B89D4B12140D9E500F8B8AE /* StringExtension.swift */,
 				1B89D4B22140D9E500F8B8AE /* Color.swift */,
-				1B89D4B02140D9E500F8B8AE /* BaseModel.swift */,
 			);
 			path = Frame;
 			sourceTree = "<group>";
@@ -134,6 +133,7 @@
 		1B89D4B32140D9E500F8B8AE /* API */ = {
 			isa = PBXGroup;
 			children = (
+				1B89D4B02140D9E500F8B8AE /* BaseModel.swift */,
 				1B89D4B42140D9E500F8B8AE /* HttpQueryUnmind.swift */,
 				1B89D4B52140D9E500F8B8AE /* HttpQueryManager.swift */,
 				1B89D4B62140D9E500F8B8AE /* HttpRequestType.swift */,
