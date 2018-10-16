@@ -1,7 +1,7 @@
 //
 //  HttpProgressManager.swift
 //  Duliday
-//
+//  http 加载菊花
 //  Created by liaohai on 2018/2/1.
 //  Copyright © 2018年 Duliday. All rights reserved.
 //

@@ -1,7 +1,7 @@
 //
 //  HttpCache.swift
 //  Duliday
-//
+//  http 缓存
 //  Created by liaohai on 2018/1/23.
 //  Copyright © 2018年 Duliday. All rights reserved.
 //

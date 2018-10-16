@@ -10,6 +10,10 @@ import Foundation
 import Moya
 import RxSwift
 
+/*
+ 扩展TargetType
+ http缓存索引：链接加参数
+*/
 public protocol RequestTargetType:TargetType {
     var parames:[String : Any] { get }
 }

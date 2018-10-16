@@ -11,24 +11,12 @@ import RxSwift
 import Moya
 import HandyJSON
 
-var isOpenConsoleOutput = true
-var diffientTimeInterval: TimeInterval = 0
-var headerTagField = "Duliday-Cache-Tag"
-
 public typealias HttpSuccess<E:HandyJSON> = (_ model:E?, _ base:BaseModel?) -> Swift.Void
 public typealias HttpSuccessArray<E:HandyJSON> = (_ model:[E]?, _ base:BaseModel?) -> Swift.Void
 public typealias HttpCache<E:HandyJSON> = (_ model:E?) -> Swift.Void
 public typealias HttpCacheArray<E:HandyJSON> = (_ model:[E]?) -> Swift.Void
 public typealias HttpError = (_ errorMsg:String, _ errorCode:Int) -> Swift.Void
 public typealias HttpReponseError = (_ errorCode:Int?) -> Swift.Void
-
-public func printLog(_ items: Any...) {
-    if isOpenConsoleOutput {
-        for item in items {
-            print(item)
-        }
-    }
-}
 
 public class QueryManager<T: RequestTargetType> {
     init() {
@@ -59,11 +47,15 @@ private func ReversedPrintClosure(_ separator: String, terminator: String, items
             if itemStr.contains("Request Body") ||
                 itemStr.contains("Request: http") ||
                 itemStr.contains("Request Method") {
-                print(item, separator: separator, terminator: terminator)
+                if isOpenConsoleOutput {
+                    print(item, separator: separator, terminator: terminator)
+                }
             } else if !itemStr.contains("Moya_Logger"){
                 let time = Int(NSDate().timeIntervalSince1970).moyaTimeStr()
                 let timeStr = String(format: "Moya_Logger: [%@] HTTP Response", time)
-                print(timeStr, item, separator: separator, terminator: terminator)
+                if isOpenConsoleOutput {
+                    print(timeStr, item, separator: separator, terminator: terminator)
+                }
             }
         }
     }
@@ -203,7 +195,6 @@ public class QueryBall<T:RequestTargetType> {
                     if let bm = base, bm.code != Int.defaultValue, bm.code != 0 {
                         DispatchQueue.main.async {
                             HttpProgressManager.hiddenProcessHUD(progress, view:progressView)
-                            //HttpProgressManager.showErrorProgressHUD(code: base!.code, interError: true)
                             success(nil, base)
                         }
                         return
@@ -337,7 +328,6 @@ public class QueryBall<T:RequestTargetType> {
                     if let bm = base, bm.code != Int.defaultValue, bm.code != 0 {
                         DispatchQueue.main.async {
                             HttpProgressManager.hiddenProcessHUD(progress, view:progressView)
-                            //HttpProgressManager.showErrorProgressHUD(code: base!.code, interError: true)
                             success(nil, base)
                         }
                         return
@@ -609,7 +599,9 @@ public class QueryBall<T:RequestTargetType> {
         
         cache.store(fileName: cacheUrl(params), object: object) { (status) in
             guard status else {
-                printLog("QueryManager Error. cache error, path:\(params.path)")
+                if isOpenConsoleOutput {
+                    print("QueryManager Error. cache error, path:\(params.path)")
+                }
                 return
             }
         }
@@ -619,10 +611,6 @@ public class QueryBall<T:RequestTargetType> {
     private func moyaErrorDes(_ moyaError:MoyaError, _ error: HttpError) {
         let errorDes = moyaError.errorDescription ?? "NULL"
         let errorCode:Int = moyaError.response?.statusCode ?? -1
-        
-        if errorCode != -1, errorCode != 200 {
-            //HttpProgressManager.showErrorProgressHUD(code: errorCode)
-        }
         
         self.reponseErrorCode(errorCode)
         guard let resData = moyaError.response?.data else {

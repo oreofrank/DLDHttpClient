@@ -18,15 +18,14 @@ class HttpQueryUnmind {
             return false
         }
         if let statusCode = dic["code"] as? Int {
-            if statusCode == 600 {
+            // 强制更新
+            if statusCode == updateCode {
                 let message = dic["message"] as! String
-                
                 UpdateVC.view.backgroundColor = UIColor.clear
                 UpdateVC.message = message
                 UpdateWindow.rootViewController = UpdateVC
                 UpdateWindow.makeKeyAndVisible()
                 UpdateWindow.backgroundColor = UIColor.clear
-                
                 return true
             }
         }
@@ -58,11 +57,23 @@ class ForceUpdateViewController:UIViewController {
         alertController.view.backgroundColor = UIColor.clear
         let okAction = UIAlertAction(title: "立即更新", style: .default, handler: {
             action in
-            //OpenUrl.open(scheme: Url_to_dulidayBusiness)
+            self.open(url: appstoreUrl)
         })
         alertController.addAction(okAction)
         self.present(alertController, animated: true, completion: nil)
-        
+    }
+    
+    func open(url: String) {
+        if let url = URL(string: url) {
+            if #available(iOS 10, *) {
+                UIApplication.shared.open(url, options: [:],
+                                          completionHandler: {
+                                            (success) in
+                })
+            } else {
+                UIApplication.shared.openURL(url)
+            }
+        }
     }
     
     deinit {
