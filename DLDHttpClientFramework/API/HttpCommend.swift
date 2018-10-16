@@ -20,23 +20,23 @@ var appstoreUrl = ""
 var updateCode = 600
 
 public class DLDHttpCommend {
-    public func setConsoleOutput(_ open: Bool) {
+    public class func setConsoleOutput(_ open: Bool) {
         isOpenConsoleOutput = open
     }
     
-    public func getDiffientTime() -> TimeInterval {
+    public class func getDiffientTime() -> TimeInterval {
         return diffientTimeInterval
     }
     
-    public func setHeaderTag(_ tag: String) {
+    public class func setHeaderTag(_ tag: String) {
         headerTagField = tag
     }
     
-    public func setAppstoreUrl(_ url: String) {
+    public class func setAppstoreUrl(_ url: String) {
         appstoreUrl = url
     }
     
-    public func setUpdateCode(_ code: Int) {
+    public class func setUpdateCode(_ code: Int) {
         updateCode = code
     }
 }
