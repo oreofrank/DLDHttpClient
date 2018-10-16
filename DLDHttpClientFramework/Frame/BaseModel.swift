@@ -9,11 +9,11 @@
 import Foundation
 import HandyJSON
 
-class BaseModel:HandyJSON {
-	var message:String! = String.defaultValue
-	var code:Int! = Int.defaultValue
-
-	required init() {
-		
-	}
+public class BaseModel:HandyJSON {
+    public var message:String! = String.defaultValue
+    public var code:Int! = Int.defaultValue
+    
+    required public init() {
+        
+    }
 }

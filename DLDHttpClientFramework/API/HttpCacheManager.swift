@@ -25,13 +25,13 @@ class HttpCacheModel:NSObject, NSCoding {
     }
 }
 
-class HttpCacheManager {
+public class HttpCacheManager {
     
     private let ioQueue: DispatchQueue
     private var fileManager: FileManager!
     var diskCachePath:String
     
-    init() {
+    public init() {
         ioQueue = DispatchQueue(label: "DLD.HttpCache.ioQueue")
         
         //获取缓存目录
@@ -66,11 +66,11 @@ class HttpCacheManager {
     //MARK: 解档的方法
     func retrive(fileName: String) -> Any? {
         let name = fileMd5(fileName)
-
+        
         return NSKeyedUnarchiver.unarchiveObject(withFile: name)
     }
     
-    func cleanCatch() {
+    public func cleanCatch() {
         do {
             try self.fileManager.removeItem(atPath: self.diskCachePath)
         } catch {

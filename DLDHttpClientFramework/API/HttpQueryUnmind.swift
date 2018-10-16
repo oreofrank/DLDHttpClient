@@ -1,3 +1,11 @@
+//
+//  HttpCache.swift
+//  Duliday
+//
+//  Created by liaohai on 2018/1/23.
+//  Copyright © 2018年 Duliday. All rights reserved.
+//
+
 import Foundation
 
 let UpdateWindow:UIWindow = UIWindow.init(frame: UIScreen.main.bounds)
@@ -9,17 +17,18 @@ class HttpQueryUnmind {
         guard let dic = data as? NSDictionary  else {
             return false
         }
-        let statusCode = dic["code"] as! Int
-        if statusCode == 600 {
-            let message = dic["message"] as! String
-          
-            UpdateVC.view.backgroundColor = UIColor.clear
-            UpdateVC.message = message
-            UpdateWindow.rootViewController = UpdateVC
-            UpdateWindow.makeKeyAndVisible()
-            UpdateWindow.backgroundColor = UIColor.clear
-            
-            return true
+        if let statusCode = dic["code"] as? Int {
+            if statusCode == 600 {
+                let message = dic["message"] as! String
+                
+                UpdateVC.view.backgroundColor = UIColor.clear
+                UpdateVC.message = message
+                UpdateWindow.rootViewController = UpdateVC
+                UpdateWindow.makeKeyAndVisible()
+                UpdateWindow.backgroundColor = UIColor.clear
+                
+                return true
+            }
         }
         return false
     }

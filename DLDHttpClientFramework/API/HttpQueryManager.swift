@@ -15,12 +15,12 @@ var isOpenConsoleOutput = true
 var diffientTimeInterval: TimeInterval = 0
 var headerTagField = "Duliday-Cache-Tag"
 
-typealias HttpSuccess<E:HandyJSON> = (_ model:E?, _ base:BaseModel?) -> Swift.Void
-typealias HttpSuccessArray<E:HandyJSON> = (_ model:[E]?, _ base:BaseModel?) -> Swift.Void
-typealias HttpCache<E:HandyJSON> = (_ model:E?) -> Swift.Void
-typealias HttpCacheArray<E:HandyJSON> = (_ model:[E]?) -> Swift.Void
-typealias HttpError = (_ errorMsg:String, _ errorCode:Int) -> Swift.Void
-typealias HttpReponseError = (_ errorCode:Int?) -> Swift.Void
+public typealias HttpSuccess<E:HandyJSON> = (_ model:E?, _ base:BaseModel?) -> Swift.Void
+public typealias HttpSuccessArray<E:HandyJSON> = (_ model:[E]?, _ base:BaseModel?) -> Swift.Void
+public typealias HttpCache<E:HandyJSON> = (_ model:E?) -> Swift.Void
+public typealias HttpCacheArray<E:HandyJSON> = (_ model:[E]?) -> Swift.Void
+public typealias HttpError = (_ errorMsg:String, _ errorCode:Int) -> Swift.Void
+public typealias HttpReponseError = (_ errorCode:Int?) -> Swift.Void
 
 public func printLog(_ items: Any...) {
     if isOpenConsoleOutput {
@@ -30,11 +30,11 @@ public func printLog(_ items: Any...) {
     }
 }
 
-class QueryManager<T: RequestTargetType> {
+public class QueryManager<T: RequestTargetType> {
     init() {
     }
     
-    class func createQuery(dispose: DisposeBag, reponseErrorCode:@escaping HttpReponseError) -> QueryBall<T> {
+    public class func createQuery(dispose: DisposeBag, reponseErrorCode:@escaping HttpReponseError) -> QueryBall<T> {
         
         return QueryBall<T>(disposeBag : dispose, errorCode:reponseErrorCode)
     }
@@ -70,7 +70,7 @@ private func ReversedPrintClosure(_ separator: String, terminator: String, items
 }
 
 //MARK:LOG 请求失败打印
-private func RequestErrorClosure(_ errorMsg:String, _ errorCode:Int) -> Swift.Void {
+public func RequestErrorClosure(_ errorMsg:String, _ errorCode:Int) -> Swift.Void {
     print("QueryManager error:", errorMsg, ",code:", errorCode)
 }
 
@@ -96,7 +96,7 @@ extension Moya.Response {
     
 }
 
-class QueryBall<T:RequestTargetType> {
+public class QueryBall<T:RequestTargetType> {
     
     var sProvider:MoyaProvider<T>
     var reactive:Reactive<MoyaProvider<T>>
@@ -437,12 +437,12 @@ class QueryBall<T:RequestTargetType> {
      * error：失败回调
      * success：成功回调
      */
-    func request<F: HandyJSON>(_ params:T,
-                               progress:Bool,
-                               progressView:UIView? = nil,
-                               cache: HttpCache<F>? = nil,
-                               error: @escaping HttpError = RequestErrorClosure,
-                               _ success: @escaping HttpSuccess<F>) {
+    public func request<F: HandyJSON>(_ params:T,
+                                      progress:Bool,
+                                      progressView:UIView? = nil,
+                                      cache: HttpCache<F>? = nil,
+                                      error: @escaping HttpError = RequestErrorClosure,
+                                      _ success: @escaping HttpSuccess<F>) {
         var cacheFlag = false
         if let cache = cache { //本地读取
             cacheFlag = true
@@ -469,12 +469,12 @@ class QueryBall<T:RequestTargetType> {
      * error：失败回调
      * success：成功回调
      */
-    func request<F: HandyJSON>(_ params:T,
-                               progress:Bool,
-                               progressView:UIView? = nil,
-                               cache: HttpCacheArray<F>? = nil,
-                               error: @escaping HttpError = RequestErrorClosure,
-                               _ success: @escaping HttpSuccessArray<F>) {
+    public func request<F: HandyJSON>(_ params:T,
+                                      progress:Bool,
+                                      progressView:UIView? = nil,
+                                      cache: HttpCacheArray<F>? = nil,
+                                      error: @escaping HttpError = RequestErrorClosure,
+                                      _ success: @escaping HttpSuccessArray<F>) {
         var cacheFlag = false
         if let cache = cache { //本地读取
             cacheFlag = true
@@ -501,8 +501,8 @@ class QueryBall<T:RequestTargetType> {
      * error：失败回调
      * success：成功回调
      */
-    func request(_ params:T,
-                 progress:Bool,
+    public func request(_ params:T,
+                        progress:Bool,
                  progressView:UIView? = nil,
                  error: @escaping HttpError = RequestErrorClosure,
                  _ success: @escaping ((_ response:Any?, _ base:BaseModel?)->())) {
