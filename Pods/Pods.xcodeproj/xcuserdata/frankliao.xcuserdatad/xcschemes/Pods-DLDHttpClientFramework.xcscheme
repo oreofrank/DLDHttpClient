@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CF284BC2EC5B8972846BF917174AC7A0"
+               BlueprintIdentifier = "05CE66C0F92CF40DECD4D1CFDC72C4C2"
                BuildableName = "Pods_DLDHttpClientFramework.framework"
                BlueprintName = "Pods-DLDHttpClientFramework"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "CF284BC2EC5B8972846BF917174AC7A0"
+            BlueprintIdentifier = "05CE66C0F92CF40DECD4D1CFDC72C4C2"
             BuildableName = "Pods_DLDHttpClientFramework.framework"
             BlueprintName = "Pods-DLDHttpClientFramework"
             ReferencedContainer = "container:Pods.xcodeproj">

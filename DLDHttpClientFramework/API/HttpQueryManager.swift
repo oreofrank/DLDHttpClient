@@ -22,9 +22,9 @@ public class QueryManager<T: RequestTargetType> {
     init() {
     }
     
-    public class func createQuery(dispose: DisposeBag, reponseErrorCode:@escaping HttpReponseError) -> QueryBall<T> {
+    public class func createQuery(reponseErrorCode:@escaping HttpReponseError) -> QueryBall<T> {
         
-        return QueryBall<T>(disposeBag : dispose, errorCode:reponseErrorCode)
+        return QueryBall<T>()
     }
     
 }
@@ -93,12 +93,9 @@ public class QueryBall<T:RequestTargetType> {
     var sProvider:MoyaProvider<T>
     var reactive:Reactive<MoyaProvider<T>>
     
-    let sDisposeBag: DisposeBag
-    let reponseErrorCode:HttpReponseError!
+    let sDisposeBag: DisposeBag = DisposeBag()
     
-    init(disposeBag : DisposeBag, errorCode:@escaping HttpReponseError) {
-        reponseErrorCode = errorCode
-        sDisposeBag = disposeBag
+    init() {
         sProvider = MoyaProvider<T>()
         reactive = Reactive(sProvider)
     }
@@ -612,7 +609,9 @@ public class QueryBall<T:RequestTargetType> {
         let errorDes = moyaError.errorDescription ?? "NULL"
         let errorCode:Int = moyaError.response?.statusCode ?? -1
         
-        self.reponseErrorCode(errorCode)
+        if let reponseError = reponseError {
+            reponseError(errorCode)
+        }
         guard let resData = moyaError.response?.data else {
             error(errorDes, errorCode)
             return

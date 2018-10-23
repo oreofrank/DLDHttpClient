@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
 
   s.name         = "DLDHttpClient"
 
-  s.version      = "1.1.3"
+  s.version      = "1.1.4"
 
   s.summary      = "http handle with data model"
 
@@ -140,7 +140,6 @@ Pod::Spec.new do |s|
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
 
   s.dependency "HandyJSON"
-  s.dependency "RxCocoa"
   s.dependency "Moya/RxSwift"
 
   s.swift_version = '4.0'

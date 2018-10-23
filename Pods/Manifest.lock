@@ -8,14 +8,11 @@ PODS:
     - Moya/Core
     - RxSwift (~> 4.0)
   - Result (3.2.4)
-  - RxCocoa (4.3.1):
-    - RxSwift (~> 4.0)
   - RxSwift (4.3.1)
 
 DEPENDENCIES:
   - HandyJSON
   - Moya/RxSwift
-  - RxCocoa
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -23,7 +20,6 @@ SPEC REPOS:
     - HandyJSON
     - Moya
     - Result
-    - RxCocoa
     - RxSwift
 
 SPEC CHECKSUMS:
@@ -31,9 +27,8 @@ SPEC CHECKSUMS:
   HandyJSON: 9dfc026c7d7adc1f0f8ba8b181495f0e0763b0f4
   Moya: a725035953bc1c0eb1be505ab903984501d82440
   Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
-  RxCocoa: 78763c7b07d02455598d9fc3c1ad091a28b73635
   RxSwift: fe0fd770a43acdb7d0a53da411c9b892e69bb6e4
 
-PODFILE CHECKSUM: 585bf4a539a27bf658f09e893a2c78fce2419932
+PODFILE CHECKSUM: 4fe36971dc496d03eb060101f7cbf7e484fd45c6
 
 COCOAPODS: 1.5.3

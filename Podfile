@@ -7,7 +7,7 @@ target 'DLDHttpClientFramework' do
   use_frameworks!
   
 pod 'HandyJSON'
-pod 'RxCocoa'
+pod 'Moya/RxCocoa'
 pod 'Moya/RxSwift'
 
 end

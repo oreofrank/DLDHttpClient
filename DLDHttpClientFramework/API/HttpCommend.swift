@@ -19,6 +19,8 @@ var appstoreUrl = ""
 // 强制更新code
 var updateCode = 600
 
+var reponseError:HttpReponseError? = nil
+
 public class DLDHttpCommend {
     public class func setConsoleOutput(_ open: Bool) {
         isOpenConsoleOutput = open
@@ -39,4 +41,9 @@ public class DLDHttpCommend {
     public class func setUpdateCode(_ code: Int) {
         updateCode = code
     }
+    
+    public class func setReponseError(response: @escaping HttpReponseError) {
+        reponseError = response
+    }
+    
 }
