@@ -22,7 +22,7 @@ public class QueryManager<T: RequestTargetType> {
     init() {
     }
     
-    public class func createQuery(reponseErrorCode:@escaping HttpReponseError) -> QueryBall<T> {
+    public class func createQuery() -> QueryBall<T> {
         
         return QueryBall<T>()
     }
