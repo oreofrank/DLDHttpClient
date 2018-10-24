@@ -12,8 +12,8 @@ import Foundation
 var isOpenConsoleOutput = true
 // 服务器时间差
 var diffientTimeInterval: TimeInterval = 0
-// tag区分
-var headerTagField = "Duliday-Cache-Tag"
+// header tag缓存
+var headerTagField:String? = nil
 // 强制更新跳转
 var appstoreUrl = ""
 // 强制更新code

@@ -153,11 +153,13 @@ public class QueryBall<T:RequestTargetType> {
                                           _ error: @escaping HttpError,
                                           _ success: @escaping HttpSuccess<F>)
     {
-        
-        let tagHeader:[String : String] = [headerTagField : ResponseGetTag(params: params) ?? ""]
-        
-        let headers = self.headerMerge(tagHeader, params.headers)
-        initProvider(headers)
+        if let headerTagField = headerTagField {
+            let tagHeader:[String : String] = [headerTagField : ResponseGetTag(params: params) ?? ""]
+            let headers = self.headerMerge(tagHeader, params.headers)
+            initProvider(headers)
+        } else {
+            initProvider(params.headers)
+        }
         
         DispatchQueue.main.async {
             HttpProgressManager.showProgressHUD(progress, view:progressView)
@@ -288,10 +290,13 @@ public class QueryBall<T:RequestTargetType> {
                                            _ error: @escaping HttpError,
                                            _ success: @escaping HttpSuccessArray<F>)
     {
-        let tagHeader:[String : String] = [headerTagField : ResponseGetTag(params: params) ?? ""]
-        let headers = self.headerMerge(tagHeader, params.headers)
-        
-        initProvider(headers)
+        if let headerTagField = headerTagField {
+            let tagHeader:[String : String] = [headerTagField : ResponseGetTag(params: params) ?? ""]
+            let headers = self.headerMerge(tagHeader, params.headers)
+            initProvider(headers)
+        } else {
+            initProvider(params.headers)
+        }
         
         DispatchQueue.main.async {
             HttpProgressManager.showProgressHUD(progress, view:progressView)
@@ -494,10 +499,13 @@ public class QueryBall<T:RequestTargetType> {
                  error: @escaping HttpError = RequestErrorClosure,
                  _ success: @escaping ((_ response:Any?, _ base:BaseModel?)->())) {
         
-        let tagHeader:[String : String] = [headerTagField : ResponseGetTag(params: params) ?? ""]
-        let headers = self.headerMerge(tagHeader, params.headers)
-        
-        initProvider(headers)
+        if let headerTagField = headerTagField {
+            let tagHeader:[String : String] = [headerTagField : ResponseGetTag(params: params) ?? ""]
+            let headers = self.headerMerge(tagHeader, params.headers)
+            initProvider(headers)
+        } else {
+            initProvider(params.headers)
+        }
         
         DispatchQueue.main.async {
             HttpProgressManager.showProgressHUD(progress, view:progressView)
