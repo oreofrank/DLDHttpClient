@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
 
   s.name         = "DLDHttpClient"
 
-  s.version      = "1.1.6"
+  s.version      = "1.2.0"
 
   s.summary      = "http handle with data model"
 
@@ -142,6 +142,6 @@ Pod::Spec.new do |s|
   s.dependency "HandyJSON"
   s.dependency "Moya/RxSwift"
 
-  s.swift_version = '4.0'
+  s.swift_version = '4.2'
 
 end
