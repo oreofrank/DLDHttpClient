@@ -582,19 +582,9 @@ public class QueryBall<T:RequestTargetType> {
     }
     
     //url+参数
-    func getJSONStringFromDictionary(dictionary:NSDictionary) -> String {
-        if (!JSONSerialization.isValidJSONObject(dictionary)) {
-            print("QueryManager Error ")
-            return ""
-        }
-        let data : NSData! = try! JSONSerialization.data(withJSONObject: dictionary, options: []) as NSData?
-        let JSONString = NSString(data:data as Data,encoding: String.Encoding.utf8.rawValue)
-        return JSONString! as String
-        
-    }
-    
     private func cacheUrl(_ params:T) -> String {
-        let paramsStr = getJSONStringFromDictionary(dictionary: params.parames as NSDictionary)
+        let keys = Array(params.parames.keys).sorted(by: <)
+        let paramsStr = keys.joined(separator: ",")
         return params.path + paramsStr
     }
     

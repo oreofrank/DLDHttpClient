@@ -15,7 +15,7 @@ class HttpProgressManager {
     static let httpProgressWindow = UIWindow.init(frame: UIScreen.main.bounds)
     static let httpErrorProgressWindow = UIWindow.init(frame: UIScreen.main.bounds)
     
-    static let hud = UIActivityIndicatorView(activityIndicatorStyle:UIActivityIndicatorViewStyle.gray)
+    static let hud = UIActivityIndicatorView(style:UIActivityIndicatorView.Style.gray)
     
     class func showProgressHUD(_ show:Bool, view:UIView? = nil) {
         guard show else {

@@ -40,7 +40,7 @@ class ForceUpdateViewController:UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(ForceUpdateViewController.applicationDidBecomeActive(_:)), name: .UIApplicationDidBecomeActive, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(ForceUpdateViewController.applicationDidBecomeActive(_:)), name: UIApplication.didBecomeActiveNotification, object: nil)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -66,7 +66,7 @@ class ForceUpdateViewController:UIViewController {
     func open(url: String) {
         if let url = URL(string: url) {
             if #available(iOS 10, *) {
-                UIApplication.shared.open(url, options: [:],
+                UIApplication.shared.open(url, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]),
                                           completionHandler: {
                                             (success) in
                 })
@@ -79,4 +79,9 @@ class ForceUpdateViewController:UIViewController {
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToUIApplicationOpenExternalURLOptionsKeyDictionary(_ input: [String: Any]) -> [UIApplication.OpenExternalURLOptionsKey: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIApplication.OpenExternalURLOptionsKey(rawValue: key), value)})
 }
