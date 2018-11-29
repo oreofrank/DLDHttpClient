@@ -191,7 +191,7 @@ public class QueryBall<T:RequestTargetType> {
                 var base:BaseModel? = nil
                 if let data = data as? NSDictionary {
                     base = BaseModel.deserialize(from: data)
-                    if let bm = base, bm.code != Int.defaultValue, bm.code != 0 {
+                    if let bm = base, bm.code != Int.defaultValue, bm.code != successCode {
                         DispatchQueue.main.async {
                             HttpProgressManager.hiddenProcessHUD(progress, view:progressView)
                             success(nil, base)
@@ -327,7 +327,7 @@ public class QueryBall<T:RequestTargetType> {
                 var base:BaseModel? = nil
                 if let data = data as? NSDictionary {
                     base = BaseModel.deserialize(from: data)
-                    if let bm = base, bm.code != Int.defaultValue, bm.code != 0 {
+                    if let bm = base, bm.code != Int.defaultValue, bm.code != successCode {
                         DispatchQueue.main.async {
                             HttpProgressManager.hiddenProcessHUD(progress, view:progressView)
                             success(nil, base)
@@ -526,7 +526,7 @@ public class QueryBall<T:RequestTargetType> {
                 var base:BaseModel? = nil
                 if let data = data as? NSDictionary {
                     base = BaseModel.deserialize(from: data)
-                    if let bm = base, bm.code != Int.defaultValue, bm.code != 0 {
+                    if let bm = base, bm.code != Int.defaultValue, bm.code != successCode {
                         DispatchQueue.main.async {
                             HttpProgressManager.hiddenProcessHUD(progress, view:progressView)
                             //HttpProgressManager.showErrorProgressHUD(code: base!.code, interError: true)

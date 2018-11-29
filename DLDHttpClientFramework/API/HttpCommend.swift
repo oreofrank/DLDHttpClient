@@ -21,6 +21,9 @@ var updateCode = 600
 
 var reponseError:HttpReponseError? = nil
 
+// 业务code
+var successCode = 0
+
 public class DLDHttpCommend {
     public class func setConsoleOutput(_ open: Bool) {
         isOpenConsoleOutput = open
@@ -39,6 +42,10 @@ public class DLDHttpCommend {
     }
     
     public class func setUpdateCode(_ code: Int) {
+        updateCode = code
+    }
+    
+    public class func setSuccessCode(_ code: Int) {
         updateCode = code
     }
     
