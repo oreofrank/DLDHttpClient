@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
 
   s.name         = "DLDHttpClient"
 
-  s.version      = "1.2.2"
+  s.version      = "1.2.3"
 
   s.summary      = "http handle with data model"
 
