@@ -46,7 +46,7 @@ public class DLDHttpCommend {
     }
     
     public class func setSuccessCode(_ code: Int) {
-        updateCode = code
+        successCode = code
     }
     
     public class func setReponseError(response: @escaping HttpReponseError) {
