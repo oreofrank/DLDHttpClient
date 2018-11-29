@@ -20,7 +20,7 @@ var updateCode:Int = 600
 var reponseError:HttpReponseError? = nil
 
 // 业务code
-var successCode:Int = 3
+var successCode:Int = 0
 
 public class DLDHttpCommend {
     public class func setConsoleOutput(_ open: Bool) {
