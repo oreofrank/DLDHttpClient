@@ -195,6 +195,9 @@ public class QueryBall<T:RequestTargetType> {
                         DispatchQueue.main.async {
                             HttpProgressManager.hiddenProcessHUD(progress, view:progressView)
                             success(nil, base)
+                            if let reponseError = reponseError {
+                                reponseError(base?.code)
+                            }
                         }
                         return
                     }
@@ -331,6 +334,9 @@ public class QueryBall<T:RequestTargetType> {
                         DispatchQueue.main.async {
                             HttpProgressManager.hiddenProcessHUD(progress, view:progressView)
                             success(nil, base)
+                            if let reponseError = reponseError {
+                                reponseError(base?.code)
+                            }
                         }
                         return
                     }
@@ -495,9 +501,9 @@ public class QueryBall<T:RequestTargetType> {
      */
     public func request(_ params:T,
                         progress:Bool,
-                 progressView:UIView? = nil,
-                 error: @escaping HttpError = RequestErrorClosure,
-                 _ success: @escaping ((_ response:Any?, _ base:BaseModel?)->())) {
+                        progressView:UIView? = nil,
+                        error: @escaping HttpError = RequestErrorClosure,
+                        _ success: @escaping ((_ response:Any?, _ base:BaseModel?)->())) {
         
         if let headerTagField = headerTagField {
             let tagHeader:[String : String] = [headerTagField : ResponseGetTag(params: params) ?? ""]
@@ -529,8 +535,10 @@ public class QueryBall<T:RequestTargetType> {
                     if let bm = base, bm.code != Int.defaultValue, bm.code != successCode {
                         DispatchQueue.main.async {
                             HttpProgressManager.hiddenProcessHUD(progress, view:progressView)
-                            //HttpProgressManager.showErrorProgressHUD(code: base!.code, interError: true)
                             success(nil, base)
+                            if let reponseError = reponseError {
+                                reponseError(base?.code)
+                            }
                         }
                         return
                     }
