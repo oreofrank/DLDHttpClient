@@ -13,7 +13,6 @@ let HttpProgressErrorTag = false
 class HttpProgressManager {
     
     static let httpProgressWindow = UIWindow.init(frame: UIScreen.main.bounds)
-    static let httpErrorProgressWindow = UIWindow.init(frame: UIScreen.main.bounds)
     
     static let hud = UIActivityIndicatorView(style:UIActivityIndicatorView.Style.gray)
     
@@ -28,12 +27,15 @@ class HttpProgressManager {
             hud.startAnimating()
             hud.color = UIColor.colorWithHexCode(code: "ff473d")
         } else {
-            hud.center = httpProgressWindow.center
+            let rootViewController = ProgressUIViewController()
+            hud.center = rootViewController.view.center
             hud.startAnimating()
             hud.color = UIColor.colorWithHexCode(code: "ff473d")
-            httpProgressWindow.addSubview(hud)
+            rootViewController.view.addSubview(hud)
+            rootViewController.view.backgroundColor = UIColor.clear
             httpProgressWindow.backgroundColor = UIColor.clear
             httpProgressWindow.isHidden = false
+            httpProgressWindow.rootViewController = rootViewController
             httpProgressWindow.makeKeyAndVisible()
         }
     }
@@ -52,3 +54,20 @@ class HttpProgressManager {
     }
     
 }
+
+class ProgressUIViewController:UIViewController {
+    
+    override var shouldAutorotate: Bool {
+        return true
+    }
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .landscape
+    }
+    override var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation {
+        return UIApplication.shared.statusBarOrientation
+    }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+}
+
