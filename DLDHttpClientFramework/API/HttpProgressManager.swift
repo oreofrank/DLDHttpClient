@@ -11,7 +11,6 @@ import Foundation
 let HttpProgressErrorTag = false
 
 class HttpProgressManager {
-    
     static let httpProgressWindow = UIWindow.init(frame: UIScreen.main.bounds)
     
     static let hud = UIActivityIndicatorView(style:UIActivityIndicatorView.Style.gray)
@@ -27,15 +26,17 @@ class HttpProgressManager {
             hud.startAnimating()
             hud.color = UIColor.colorWithHexCode(code: "ff473d")
         } else {
-            let rootViewController = ProgressUIViewController()
-            hud.center = rootViewController.view.center
+            let statusBarOrientation = UIApplication.shared.statusBarOrientation
+            if statusBarOrientation.isLandscape {
+                let frame = httpProgressWindow.frame
+                httpProgressWindow.frame = CGRect(x: frame.origin.x, y: frame.origin.y, width: frame.size.height, height: frame.size.width)
+            }
+            httpProgressWindow.addSubview(hud)
+            hud.center = httpProgressWindow.center
             hud.startAnimating()
             hud.color = UIColor.colorWithHexCode(code: "ff473d")
-            rootViewController.view.addSubview(hud)
-            rootViewController.view.backgroundColor = UIColor.clear
             httpProgressWindow.backgroundColor = UIColor.clear
             httpProgressWindow.isHidden = false
-            httpProgressWindow.rootViewController = rootViewController
             httpProgressWindow.makeKeyAndVisible()
         }
     }
@@ -53,21 +54,5 @@ class HttpProgressManager {
         }
     }
     
-}
-
-class ProgressUIViewController:UIViewController {
-    
-    override var shouldAutorotate: Bool {
-        return true
-    }
-    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        return .landscape
-    }
-    override var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation {
-        return UIApplication.shared.statusBarOrientation
-    }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
 }
 
