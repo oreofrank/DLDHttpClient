@@ -29,7 +29,9 @@ class HttpProgressManager {
             let statusBarOrientation = UIApplication.shared.statusBarOrientation
             if statusBarOrientation.isLandscape {
                 let frame = httpProgressWindow.frame
-                httpProgressWindow.frame = CGRect(x: frame.origin.x, y: frame.origin.y, width: frame.size.height, height: frame.size.width)
+                if frame.equalTo(UIScreen.main.bounds) {
+                    httpProgressWindow.frame = CGRect(x: frame.origin.x, y: frame.origin.y, width: frame.size.height, height: frame.size.width)
+                }
             }
             httpProgressWindow.addSubview(hud)
             hud.center = httpProgressWindow.center
