@@ -139,7 +139,7 @@ Pod::Spec.new do |s|
 
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
 
-  s.dependency "HandyJSON"
+  s.dependency "HandyJSON", "~> 5.0.0-beta.1"
   s.dependency "RxCocoa"
   s.dependency "Moya/RxSwift"
 
