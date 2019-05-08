@@ -51,7 +51,7 @@ public class HttpCacheManager {
     //MD5文件
     func fileMd5(_ file: String) -> String {
         
-        return (diskCachePath as NSString).appendingPathComponent(file.hc_MD5())
+        return (diskCachePath as NSString).appendingPathComponent(file.cm_MD5())
     }
     
     //MARK: 归档的方法

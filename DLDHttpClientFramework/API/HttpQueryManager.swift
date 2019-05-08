@@ -678,39 +678,14 @@ public class QueryBall<T:RequestTargetType> {
     private func ResponseSetTag(params:T, tag:String) {
         let interface = cacheUrl(params)
         let key = interface + "-Tag"
-        HttpTagManagerInstance.setTag(tag: tag, key: key.hc_MD5())
+        HttpTagManagerInstance.setTag(tag: tag, key: key.cm_MD5())
     }
     
     //获取接口Tag
     private func ResponseGetTag(params:T) -> (String?) {
         let interface = cacheUrl(params)
         let key = interface + "-Tag"
-        return HttpTagManagerInstance.getTag(key: key.hc_MD5())
+        return HttpTagManagerInstance.getTag(key: key.cm_MD5())
     }
     
 }
-
-extension String {
-    func hc_MD5() -> String  {
-        if let data = data(using: String.Encoding.utf8) {
-            
-            let message = data.withUnsafeBytes { bytes -> [UInt8] in
-                return Array(UnsafeBufferPointer(start: bytes, count: data.count))
-            }
-            
-            let MD5Calculator = MD5(message)
-            let MD5Data = MD5Calculator.calculate()
-            
-            let MD5String = NSMutableString()
-            for c in MD5Data {
-                MD5String.appendFormat("%02x", c)
-            }
-            return MD5String as String
-            
-        } else {
-            return self
-        }
-    }
-    
-}
-
