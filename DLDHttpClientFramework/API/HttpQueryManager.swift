@@ -580,6 +580,36 @@ public class QueryBall<T:RequestTargetType> {
             }.disposed(by: sDisposeBag)
     }
     
+    /* 网络下载
+     * params：包含方法，url，parmater
+     * progress：下载进度
+     * success：失败成功回调
+     */
+    public func uploadfile(_ params:T,
+                           progress: @escaping (_ progress:Double)->(),
+                           _ success: @escaping ((_ success:Bool)->())) {
+        
+        if let headerTagField = headerTagField {
+            let tagHeader:[String : String] = [headerTagField : ResponseGetTag(params: params) ?? ""]
+            let headers = self.headerMerge(tagHeader, params.headers)
+            initProvider(headers)
+        } else {
+            initProvider(params.headers)
+        }
+        sProvider.request(params, progress: { (response) in
+            progress(response.progress)
+        }) { (result) in
+            if case let .success(response) = result {
+                //解析数据
+                let data = try? response.mapString()
+                print(data ?? "")
+                success(true)
+            } else {
+                success(false)
+            }
+        }
+    }
+    
     //本地获取
     private func cacheExtract(_ params:T, _ extract:(_ data: Any?)->()) {
         
