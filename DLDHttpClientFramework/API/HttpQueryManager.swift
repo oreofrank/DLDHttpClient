@@ -587,7 +587,8 @@ public class QueryBall<T:RequestTargetType> {
      */
     public func uploadfile(_ params:T,
                            progress: @escaping (_ progress:Double)->(),
-                           _ success: @escaping ((_ success:Bool)->())) {
+                           error: @escaping HttpError = RequestErrorClosure,
+                           _ success: @escaping ((_ response:Any?, _ base:BaseModel?)->())) {
         
         if let headerTagField = headerTagField {
             let tagHeader:[String : String] = [headerTagField : ResponseGetTag(params: params) ?? ""]
@@ -601,11 +602,18 @@ public class QueryBall<T:RequestTargetType> {
         }) { (result) in
             if case let .success(response) = result {
                 //解析数据
-                let data = try? response.mapString()
-                print(data ?? "")
-                success(true)
-            } else {
-                success(false)
+                let data = try? response.mapJSON()
+                var base:BaseModel? = nil
+                if let data = data as? NSDictionary {
+                    base = BaseModel.deserialize(from: data)
+                }
+                if let data = data as? NSDictionary, let ssoData = data["data"] {
+                    success(ssoData, base)
+                } else {
+                    success(data, base)
+                }
+            } else if case let .failure(e) = result {
+                self.moyaErrorDes(e, error)
             }
         }
     }
