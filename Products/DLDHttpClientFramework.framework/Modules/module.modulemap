@@ -1,0 +1,11 @@
+framework module DLDHttpClientFramework {
+  umbrella header "DLDHttpClientFramework.h"
+
+  export *
+  module * { export * }
+}
+
+module DLDHttpClientFramework.Swift {
+    header "DLDHttpClientFramework-Swift.h"
+    requires objc
+}
