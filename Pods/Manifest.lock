@@ -1,10 +1,10 @@
 PODS:
-  - Alamofire (4.8.2)
-  - HandyJSON (5.0.0-beta.1)
-  - Moya/Core (12.0.1):
+  - Alamofire (4.9.1)
+  - HandyJSON (5.0.2)
+  - Moya/Core (13.0.1):
     - Alamofire (~> 4.1)
-    - Result (~> 4.0)
-  - Moya/RxSwift (12.0.1):
+    - Result (~> 4.1)
+  - Moya/RxSwift (13.0.1):
     - Moya/Core
     - RxSwift (~> 4.0)
   - Result (4.1.0)
@@ -13,12 +13,12 @@ PODS:
   - RxSwift (4.5.0)
 
 DEPENDENCIES:
-  - HandyJSON (= 5.0.0-beta.1)
+  - HandyJSON
   - Moya/RxSwift
   - RxCocoa
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  trunk:
     - Alamofire
     - HandyJSON
     - Moya
@@ -27,13 +27,13 @@ SPEC REPOS:
     - RxSwift
 
 SPEC CHECKSUMS:
-  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
-  HandyJSON: 582477127ab3ab65bd2e471815f1a7b846856978
-  Moya: cf730b3cd9e005401ef37a85143aa141a12fd38f
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  HandyJSON: 9e4e236f5d2dbefad5155a77417bbea438201c03
+  Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
   Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
   RxCocoa: cbf70265dc65a981d4ac982e513c10cf23df24a0
   RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
 
-PODFILE CHECKSUM: 4caa4df99059d02b36e082f181c4f128d7dd2086
+PODFILE CHECKSUM: 9a0a347ac5b21435f1586ba2252da3d64fe751ca
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.9.0.beta.3
