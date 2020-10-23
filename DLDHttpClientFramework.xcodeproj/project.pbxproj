@@ -305,7 +305,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ \"${ACTION}\" = \"build\" ]\nthen\nINSTALL_DIR=${SRCROOT}/Products/${PROJECT_NAME}.framework\n \nDEVICE_DIR=${BUILD_ROOT}/${CONFIGURATION}-iphoneos/${PROJECT_NAME}.framework\n \nSIMULATOR_DIR=${BUILD_ROOT}/${CONFIGURATION}-iphonesimulator/${PROJECT_NAME}.framework\n \n \nif [ -d \"${INSTALL_DIR}\" ]\nthen\nrm -rf \"${INSTALL_DIR}\"\nfi\n \nmkdir -p \"${INSTALL_DIR}\"\n \ncp -R \"${DEVICE_DIR}/\" \"${INSTALL_DIR}/\"\n#ditto \"${DEVICE_DIR}/Headers\" \"${INSTALL_DIR}/Headers\"\n \nlipo -create \"${DEVICE_DIR}/${PROJECT_NAME}\" \"${SIMULATOR_DIR}/${PROJECT_NAME}\" -output \"${INSTALL_DIR}/${PROJECT_NAME}\"\n \necho \"======\"\necho \"${INSTALL_DIR}/${PROJECT_NAME}\"\n#open \"${DEVICE_DIR}\"\n#open \"${SRCROOT}/Products\"\nfi\n\n";
+			shellScript = "if [ \"${ACTION}\" = \"build\" ]\nthen\nINSTALL_DIR=${SRCROOT}/Products/${PROJECT_NAME}.framework\n\nDEVICE_DIR=${BUILD_ROOT}/${CONFIGURATION}-iphoneos/${PROJECT_NAME}.framework\n\nSIMULATOR_DIR=${BUILD_ROOT}/${CONFIGURATION}-iphonesimulator/${PROJECT_NAME}.framework\n\n \n# 如果真机包或模拟包不存在，则退出合并\nif [ ! -d \"${DEVICE_DIR}\" ] || [ ! -d \"${SIMULATOR_DIR}\" ]\nthen\nexit 0\nfi\n\n# 如果合并包已经存在，则替换\nif [ -d \"${INSTALL_DIR}\" ]\nthen\nrm -rf \"${INSTALL_DIR}\"\nfi\n \nmkdir -p \"${INSTALL_DIR}\"\n \ncp -R \"${DEVICE_DIR}/\" \"${INSTALL_DIR}/\"\n#ditto \"${DEVICE_DIR}/Headers\" \"${INSTALL_DIR}/Headers\"\n\necho \"===0===\"\necho \"lipo -remove ${SIMULATOR_DIR}/${PROJECT_NAME} -output ${SIMULATOR_DIR}/${PROJECT_NAME}2\"\n\nlipo -remove arm64 \"${SIMULATOR_DIR}/${PROJECT_NAME}\" -output \"${SIMULATOR_DIR}/${PROJECT_NAME}2\"\n# 使用lipo命令将其合并成一个通用framework  \n# 最后将生成的通用framework放置在工程根目录下新建的Products目录下  \nlipo -create \"${DEVICE_DIR}/${PROJECT_NAME}\" \"${SIMULATOR_DIR}/${PROJECT_NAME}2\" -output \"${INSTALL_DIR}/${PROJECT_NAME}\"\n\necho \"===1===\"\necho \"lipo -create ${DEVICE_DIR}/${PROJECT_NAME} ${SIMULATOR_DIR}/${PROJECT_NAME} -output ${INSTALL_DIR}/${PROJECT_NAME}\"\n\necho \"===2===\"\n\ncp ${SIMULATOR_DIR}/Modules/DLDHttpClientFramework.swiftmodule/i386* ${INSTALL_DIR}/Modules/DLDHttpClientFramework.swiftmodule\n\ncp ${SIMULATOR_DIR}/Modules/DLDHttpClientFramework.swiftmodule/x86_64* ${INSTALL_DIR}/Modules/DLDHttpClientFramework.swiftmodule\n\ncp ${SIMULATOR_DIR}/Modules/DLDHttpClientFramework.swiftmodule/Project/i386* ${INSTALL_DIR}/Modules/DLDHttpClientFramework.swiftmodule/Project\n\ncp ${SIMULATOR_DIR}/Modules/DLDHttpClientFramework.swiftmodule/Project/x86_64* ${INSTALL_DIR}/Modules/DLDHttpClientFramework.swiftmodule/Project\n\necho \"${INSTALL_DIR}/${PROJECT_NAME}\"\n#open \"${DEVICE_DIR}\"\nopen \"${SRCROOT}/Products\"\n\nfi\n\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -472,12 +472,15 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 76A5F6BBE5EBDC27DB9D459F /* Pods-DLDHttpClientFramework.debug.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				CLANG_ENABLE_MODULE_DEBUGGING = NO;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				EXCLUDED_ARCHS = armv7;
 				INFOPLIST_FILE = DLDHttpClientFramework/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -486,9 +489,11 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.DuLiday.httpClient;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_INCLUDE_PATHS = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -499,12 +504,15 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 342F89E1EC2B71BD98772ADF /* Pods-DLDHttpClientFramework.release.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				CLANG_ENABLE_MODULE_DEBUGGING = NO;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				EXCLUDED_ARCHS = armv7;
 				INFOPLIST_FILE = DLDHttpClientFramework/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -513,9 +521,11 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.DuLiday.httpClient;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_INCLUDE_PATHS = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
