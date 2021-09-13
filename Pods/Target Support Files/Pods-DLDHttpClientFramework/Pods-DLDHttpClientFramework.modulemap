@@ -1,6 +1,0 @@
-framework module Pods_DLDHttpClientFramework {
-  umbrella header "Pods-DLDHttpClientFramework-umbrella.h"
-
-  export *
-  module * { export * }
-}

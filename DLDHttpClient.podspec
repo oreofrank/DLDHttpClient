@@ -71,7 +71,7 @@ Pod::Spec.new do |s|
   #
 
   # s.platform     = :ios
-  s.platform     = :ios, "8.0"
+  s.platform     = :ios, "9.0"
 
   #  When using multiple platforms
   # s.ios.deployment_target = "5.0"
@@ -140,8 +140,8 @@ Pod::Spec.new do |s|
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
 
   s.dependency "HandyJSON", "~> 5.0.0-beta.1"
-  s.dependency "RxCocoa"
-  s.dependency "Moya/RxSwift"
+  s.dependency "RxCocoa", "~> 4.5.0"
+  s.dependency "Moya/RxSwift", "~> 12.0.1"
 
   s.swift_version = '5.0'
 
