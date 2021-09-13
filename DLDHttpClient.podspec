@@ -17,9 +17,9 @@ Pod::Spec.new do |s|
 
   s.name         = "DLDHttpClient"
 
-  s.version      = "1.4.2"
+  s.version      = "1.5.0"
 
-  s.summary      = "http handle with data model"
+  s.summary      = "网络数据请求，返回模型数据"
 
   s.source       = { :git => "https://github.com/oreofrank/DLDHttpClient.git", :tag => "1.1.1" }
 
